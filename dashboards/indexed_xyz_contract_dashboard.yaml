@@ -1,0 +1,49 @@
+# Visit https://docs.rilldata.com/references/project-files to learn more about Rill project files.
+
+display_name: "indexed.xyz - Contract Insights"
+model: "indexed_xyz_contract_transformation"
+timeseries: "block_time"
+measures:
+  - label: "Unique Addresses"
+    expression: "COUNT(DISTINCT address)"
+    description: "Total unique addresses."
+    format_preset: humanize
+  - label: "Transaction Volume"
+    expression: "COUNT(DISTINCT transaction_hash)"
+    description: "Total unique transactions."
+    format_preset: humanize
+dimensions:
+  - label: Address
+    property: address
+    description: "Unique identifier for each address."
+  - label: Transaction Hash
+    property: transaction_hash
+    description: "Unique identifier for each chain transaction, hashed."
+  - label: "Etherscan TX Hash URL"
+    property: "etherscan_tx_hash_url"
+    description: "The Etherscan URL where you can get more information on this
+      Transaction Hash"
+  - label: "Etherscan Address URL"
+    property: "etherscan_address_url"
+    description: "The Etherscan URL where you can get more information on this Address"
+  - label: "Event Type"
+    property: "event_type"
+    description: "An event type with the length of the properties associated with
+      this event."
+  - label: Block Hash
+    property: block_hash
+    description: "The hash for this block."
+  - label: Event Signature
+    property: event_signature
+    description: "The signature of each contract event. This represents the data
+      schema for the topics field."
+  - label: Data
+    property: data
+    description: "Unknown"
+  - label: Topics
+    property: topics
+    description: "A list of topics. Values map to the schema in Event Signature."
+  - label: ID
+    property: id
+    description: "A unique identifier for every row in the index.xyz dataset"
+description: ""
