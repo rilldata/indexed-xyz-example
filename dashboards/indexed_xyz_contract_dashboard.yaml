@@ -46,4 +46,4 @@ dimensions:
   - label: ID
     property: id
     description: "A unique identifier for every row in the index.xyz dataset"
-description: ""
+    description: ""

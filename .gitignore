@@ -1,1 +1,5 @@
+*.db
+*.db.wal
+data/
+
 **/.DS_Store
