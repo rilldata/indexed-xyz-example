@@ -4,8 +4,8 @@ last_chars=${address_hash: (-2)}
 
 echo "indexed.xyz project initializing..."
 
-echo "installing and updating Rill..."
-curl -s https://cdn.rilldata.com/install.sh | bash
+echo "installing nightly and updating Rill..."
+curl -s https://cdn.rilldata.com/install.sh | bash -s -- --nightly
 
 echo "Cloning your indexed.xyz core analysis to indexed-xyz-$last_chars..."
 git clone -b updated-analysis https://github.com/indexed-xyz/rill.git indexed-xyz-$last_chars
@@ -35,4 +35,4 @@ sed -i "" -e  "s/{{ address }}/$1/gi" ./rill.yaml
 sed -i "" -e  "s/{{ last_chars }}/$last_chars/gi" "./indexed-xyz-$last_chars/rill.yaml"
 
 echo "Initializing Rill..."
-./rill start --project="./indexed-xyz-$last_chars/"
+rill start --project="./indexed-xyz-$last_chars/"
