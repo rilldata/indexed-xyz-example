@@ -1,28 +1,23 @@
-## Welcome to Indexed.xyz
+# Welcome to the Rill Indexed.xyz Art Blocks example Repo
 
-This repository is part of partnership between Indexed.xyz and Rill Data to make web3 data more accessible by combining a transparent public data source to a beautiful interactive dashboard that can be edited and enriched using SQL.
+This repository is an example for the Indexed.xyz and Rill Data project for Art Blocks. You can read more at our [blog](https://docs.rilldata.com/indexed-xyz) post.
 
-To get started, run the script below with the smart contract you are interested in:
+## Getting started
+Make sure that you have installed Rill Developer.
+
 ```
-curl -s https://cdn.rilldata.com/indexed-xyz.sh | bash -s <your contract>
-``` 
+curl -s https://cdn.rilldata.com/install.sh | bash
 
-Example with Art Blocks (contract: 0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270):
 ```
-curl -s https://cdn.rilldata.com/indexed-xyz.sh | bash -s 0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270` 
+For more information, see [docs.rilldata.com](https://docs.rilldata.com).
+
+
+Run the following commands to clone the repository and start Rill:
+
+```bash
+git clone https://github.com/rilldata/indexed-xyz-example.git
+cd indexed-xyz-example
+rill start
 ```
 
-Indexed.xyz is a public, decoded blockchain dataset for anyone to download and copy openly. Indexed.xyz is a community effort by Goldsky, Cloudflare, Rill, Coinbase, Gnosis, Polygon, and Arweave to make understanding and building in the blockchain space easier.
-
-This script does several things on your behalf:
-- install rill
-- clone https://github.com/indexed-xyz/rill repo
-- regex replace smart contract variables
-- rehydrates your Rill project locally creating everything you need - - for your editable dashboard>
-- open Goldsky project at http://localhost:9009
-
-TODO
-- gif at the top
-- link to blog
-- license
-- community guidelines
+The initial call to `rill start` may take a while depending on your network connection as it downloads some large remote parquet files.

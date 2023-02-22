@@ -1,16 +1,24 @@
 # Visit https://docs.rilldata.com/references/project-files to learn more about Rill project files.
 
 display_name: "indexed.xyz - Contract Insights"
-model: "indexed_xyz_contract_transformation"
+model: "art_blocks_contract_transformation"
 timeseries: "block_time"
 measures:
-  - label: "Unique Addresses"
-    expression: "COUNT(DISTINCT address)"
-    description: "Total unique addresses."
-    format_preset: humanize
   - label: "Transaction Volume"
     expression: "COUNT(DISTINCT transaction_hash)"
-    description: "Total unique transactions."
+    description: ""
+    format_preset: humanize
+  - label: "Unique Senders"
+    expression: "COUNT(DISTINCT sender)"
+    description: ""
+    format_preset: humanize
+  - label: "Unique Recipients"
+    expression: "COUNT(DISTINCT recipient)"
+    description: ""
+    format_preset: humanize
+  - label: "Unique NFTs"
+    expression: "COUNT(DISTINCT token)"
+    description: ""
     format_preset: humanize
 dimensions:
   - label: Address
@@ -46,4 +54,3 @@ dimensions:
   - label: ID
     property: id
     description: "A unique identifier for every row in the index.xyz dataset"
-    description: ""
