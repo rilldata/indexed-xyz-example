@@ -1,6 +1,6 @@
 # Visit https://docs.rilldata.com/references/project-files to learn more about Rill project files.
 
-display_name: "indexed.xyz - Contract Insights"
+display_name: "Art Blocks Smart Contract Transfers by indexed.xyz"
 model: "art_blocks_contract_transformation"
 timeseries: "block_datetime"
 measures:
