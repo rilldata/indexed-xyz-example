@@ -26,4 +26,4 @@ cd indexed-xyz-example
 rill start
 ```
 
-*The initial call to `rill start` may take a while depending on your network connection as it downloads some large remote parquet files.*
+*The initial call to `rill start` may take a while depending on your network connection as it downloads some large remote data files.*

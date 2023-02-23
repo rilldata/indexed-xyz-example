@@ -16,7 +16,7 @@ SELECT
   CAST(block_number AS VARCHAR) AS block,
   *, 
 FROM indexed_xyz_contract_raw
--- WHERE address = '0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270'
+WHERE LOWER(address) = LOWER('0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270')
 
 )
 
