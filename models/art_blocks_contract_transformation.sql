@@ -1,3 +1,5 @@
+-- @materialize: true
+
 WITH 
 
 Transformation AS 
@@ -10,23 +12,22 @@ SELECT
     ' - ',
     LENGTH(REGEXP_SPLIT_TO_ARRAY(STRING_SPLIT(event_signature, '(')[2], ','))
     ) AS event_type,
-    
-    --enrich with topics list parsed to columns from topics
-    REGEXP_SPLIT_TO_ARRAY(
-        REPLACE(REPLACE(REPLACE(topics, '[',''),']', ''),'"',''),
-   ',') AS topics_list,
-
+  EPOCH_MS(block_time*1000) AS block_datetime,
+  CAST(block_number AS VARCHAR) AS block,
   *, 
 FROM indexed_xyz_contract_raw
+-- WHERE address = '0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270'
+
 )
 
-SELECT 
-  * EXCLUDE(topics_list), 
 
-  --only count for transfers 
-  CASE WHEN event_type = 'Transfer - 3' THEN topics_list[1] ELSE NULL END AS recipient, 
-  CASE WHEN event_type = 'Transfer - 3' THEN topics_list[2] ELSE NULL END AS sender,
-  CASE WHEN event_type = 'Transfer - 3' THEN topics_list[3] ELSE NULL END AS token 
+SELECT 
+  *, 
+
+  -- insights only for transfers 
+  CASE WHEN event_type = 'Transfer - 3' THEN event_params[1] ELSE NULL END AS recipient, 
+  CASE WHEN event_type = 'Transfer - 3' THEN event_params[2] ELSE NULL END AS sender,
+  CASE WHEN event_type = 'Transfer - 3' THEN event_params[3] ELSE NULL END AS token 
 FROM Transformation
 
 
