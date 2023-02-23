@@ -2,28 +2,25 @@
 
 display_name: "indexed.xyz - Contract Insights"
 model: "art_blocks_contract_transformation"
-timeseries: "block_time"
+timeseries: "block_datetime"
 measures:
   - label: "Transaction Volume"
     expression: "COUNT(DISTINCT transaction_hash)"
-    description: ""
+    description: "Total transaction volume across events"
     format_preset: humanize
   - label: "Unique Senders"
     expression: "COUNT(DISTINCT sender)"
-    description: ""
+    description: "The unique number of transfers from senders"
     format_preset: humanize
   - label: "Unique Recipients"
     expression: "COUNT(DISTINCT recipient)"
-    description: ""
+    description: "The unique number of transfers to recipients."
     format_preset: humanize
   - label: "Unique NFTs"
     expression: "COUNT(DISTINCT token)"
-    description: ""
+    description: "The unique number of NFTs."
     format_preset: humanize
 dimensions:
-  - label: Address
-    property: address
-    description: "Unique identifier for each address."
   - label: Transaction Hash
     property: transaction_hash
     description: "Unique identifier for each chain transaction, hashed."
@@ -33,24 +30,32 @@ dimensions:
       Transaction Hash"
   - label: "Etherscan Address URL"
     property: "etherscan_address_url"
-    description: "The Etherscan URL where you can get more information on this Address"
+    description: "The Etherscan URL where you can get more information on this smart
+      contract's Address."
+  - label: "Token"
+    property: "token"
+    description: "The token for the transaction."
   - label: "Event Type"
     property: "event_type"
     description: "An event type with the length of the properties associated with
       this event."
+  - label: "Block"
+    property: "block"
+    description: "The block for the transaction."
   - label: Block Hash
     property: block_hash
     description: "The hash for this block."
   - label: Event Signature
     property: event_signature
-    description: "The signature of each contract event. This represents the data
-      schema for the topics field."
+    description: "The signature of each contract event. This is also the data schema
+      for the event_params column."
   - label: Data
     property: data
-    description: "Unknown"
+    description: "Metadata. Art blocks keeps most of their data off-chain and is not
+      available here."
   - label: Topics
     property: topics
-    description: "A list of topics. Values map to the schema in Event Signature."
+    description: "A list of topics."
   - label: ID
     property: id
-    description: "A unique identifier for every row in the index.xyz dataset"
+    description: "A unique identifier for every row in the indexed.xyz dataset."

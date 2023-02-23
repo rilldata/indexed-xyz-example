@@ -1,5 +1,5 @@
 type: s3
-uri: s3://goldsky-raw/decoded/logs/v0.2.2/partition_key=de/dt=*/*.parquet
+uri: s3://indexed-xyz/ethereum/decoded/logs/v1.0.0/partition_key=36/dt=*/*.parquet
 endpoint: https://ed5d915e0259fcddb2ab1ce5592040c3.r2.cloudflarestorage.com/
 region: auto
 extract:
