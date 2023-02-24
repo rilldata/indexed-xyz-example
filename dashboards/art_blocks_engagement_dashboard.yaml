@@ -59,3 +59,9 @@ dimensions:
   - label: ID
     property: id
     description: "A unique identifier for every row in the indexed.xyz dataset."
+  - label: "Recipient"
+    property: "recipient"
+    description: "The hash for the token recipient."
+  - label: "Sender"
+    property: "sender"
+    description: "The hash for the token sender."
